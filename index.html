@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinamentos - iPonto Plus Desktop</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Folha de Estilos Customizada -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="text-slate-800 min-h-screen pb-16 bg-slate-50">
+
+    <!-- Navbar Principal -->
+    <nav class="bg-[#2a303c] text-white w-full z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <div class="flex items-center gap-2">
+                        <svg viewBox="0 0 40 40" class="h-10 w-10 text-white" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 10v6m0 4v10" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                        <div class="flex flex-col leading-none">
+                            <span class="text-xl tracking-widest font-light">INSPELL</span>
+                            <span class="text-[10px] text-slate-300 font-medium ml-0.5">Softwares</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#" class="hover:text-blue-400 transition-colors">Empresa</a>
+                    <div class="relative group cursor-pointer flex items-center gap-1 hover:text-blue-400 transition-colors">
+                        Soluções
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </div>
+                    <a href="#" class="hover:text-blue-400 transition-colors">Seja um Revendedor</a>
+                    <a href="#" class="hover:text-blue-400 transition-colors">Acesso Restrito</a>
+                    <a href="#" class="hover:text-blue-400 transition-colors">Parceiros</a>
+                    <a href="#" class="hover:text-blue-400 transition-colors">Privacidade</a>
+                    <div class="relative group cursor-pointer flex items-center gap-1 hover:text-blue-400 transition-colors">
+                        Contato
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container Principal -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        
+        <!-- Cabeçalho Principal -->
+        <header class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Treinamentos</h1>
+                <p class="text-sm text-slate-500 mt-1">Formação completa e estruturada da nossa linha de softwares</p>
+            </div>
+        </header>
+
+        <!-- Barra de Navegação / Breadcrumbs -->
+        <div class="bg-white rounded-xl px-5 py-3.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8 border border-slate-200 shadow-sm transition-all duration-300">
+            <nav class="text-sm font-medium text-slate-400">
+                <a href="#" class="text-blue-600 hover:text-blue-700 hover:underline transition">Home</a>
+                <span class="mx-2 text-slate-350">/</span>
+                <a href="#" class="text-blue-600 hover:text-blue-700 hover:underline transition">Acesso Restrito</a>
+                <span class="mx-2 text-slate-350">/</span>
+                <span class="text-slate-600 font-semibold">Treinamentos</span>
+            </nav>
+            <button onclick="handleLogout()" class="active-scale flex items-center justify-center gap-2 self-start sm:self-auto text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors">
+                <!-- Ícone Sair -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9" />
+                </svg>
+                <span>Sair</span>
+            </button>
+        </div>
+
+        <!-- Área de Filtros e Pesquisa -->
+        <div class="bg-white rounded-xl p-5 mb-10 border border-slate-200 flex flex-col lg:flex-row items-stretch lg:items-center gap-4">
+            
+            <!-- DROPDOWN: Filtrar por Software -->
+            <div class="relative w-full lg:w-auto">
+                <div class="relative flex items-center w-full lg:w-60">
+                    <button id="software-dropdown-btn" onclick="toggleDropdown('software')" class="active-scale w-full flex items-center justify-between pl-4 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-700 font-semibold hover:bg-slate-100 hover:border-slate-300 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/30">
+                        <span id="selected-software-brand" class="truncate">Filtrar por Software</span>
+                        <span class="flex items-center gap-1.5 absolute right-4">
+                            <!-- Ícone 'X' de limpeza dentro do select de Software -->
+                            <span id="clear-software-btn" onclick="clearSoftwareFilter(event)" class="hidden p-0.5 text-slate-500 hover:text-slate-700 transition-colors cursor-pointer" title="Limpar filtro">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3.5" stroke="currentColor" class="w-3.5 h-3.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </span>
+                            <svg id="software-dropdown-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-slate-500 transition-transform duration-200">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <div id="software-dropdown-menu" class="hidden absolute left-0 right-0 mt-2 bg-white border border-slate-200 rounded-lg shadow-xl z-20 overflow-hidden transition-all duration-300">
+                    <button onclick="selectSoftwareBrand('Todos')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all font-semibold border-b border-slate-100">Todos os Softwares</button>
+                    <button onclick="selectSoftwareBrand('iPonto Desktop')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iPonto Desktop</button>
+                    <button onclick="selectSoftwareBrand('iPonto Connect')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iPonto Connect</button>
+                    <button onclick="selectSoftwareBrand('iPonto Web')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iPonto Web</button>
+                    <button onclick="selectSoftwareBrand('iFitness')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iFitness</button>
+                    <button onclick="selectSoftwareBrand('iControl')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iControl</button>
+                </div>
+            </div>
+
+            <!-- DROPDOWN: Filtrar por Categoria -->
+            <div class="relative w-full lg:w-auto">
+                <div class="relative flex items-center w-full lg:w-60">
+                    <button id="categoria-dropdown-btn" onclick="toggleDropdown('categoria')" class="active-scale w-full flex items-center justify-between pl-4 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-700 font-semibold hover:bg-slate-100 hover:border-slate-300 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/30">
+                        <span id="selected-software" class="truncate">Filtrar por Categoria</span>
+                        <span class="flex items-center gap-1.5 absolute right-4">
+                            <!-- Ícone 'X' de limpeza dentro do select de Módulo -->
+                            <span id="clear-categoria-btn" onclick="clearCategoriaFilter(event)" class="hidden p-0.5 text-slate-500 hover:text-slate-700 transition-colors cursor-pointer" title="Limpar filtro">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3.5" stroke="currentColor" class="w-3.5 h-3.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </span>
+                            <svg id="categoria-dropdown-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-slate-500 transition-transform duration-200">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <div id="categoria-dropdown-menu" class="hidden absolute left-0 right-0 mt-2 bg-white border border-slate-200 rounded-lg shadow-xl z-20 overflow-hidden transition-all duration-300">
+                    <!-- Opções geradas dinamicamente via JS (app.js) -->
+                </div>
+            </div>
+
+            <!-- Input de Busca com Botão de Limpeza Rápido -->
+            <div class="relative flex-grow flex items-center gap-2">
+                <div class="relative flex-grow">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 text-slate-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.637 10.637z" />
+                        </svg>
+                    </div>
+                    <input type="text" id="search-input" onkeyup="handleSearch()" placeholder="Buscar aula por número, título ou descrição..." class="w-full pl-12 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 focus:bg-white transition-all">
+                    
+                    <!-- Ícone "X" de limpeza rápida integrado ao input de busca -->
+                    <button id="clear-search-btn" onclick="clearSearchInput()" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção: Catálogo Completo -->
+        <main>
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                    <span>Todas as aulas</span>
+                </h2>
+                <span class="text-xs font-medium text-slate-400 bg-slate-100 px-3 py-1 rounded-full" id="results-count">Mostrando 0 de 34 aulas</span>
+            </div>
+
+            <!-- Grid de Cartões (Tema Claro) -->
+            <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Inserido dinamicamente via JS -->
+            </div>
+
+            <!-- Toast de Alerta Customizado -->
+            <div id="custom-toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-5 py-3.5 rounded-lg shadow-xl translate-y-20 opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-3 border border-slate-700">
+                <span id="toast-message">Mensagem</span>
+            </div>
+
+            <!-- Botão Carregar Mais -->
+            <div class="mt-12 flex flex-col items-center justify-center gap-2">
+                <button id="load-more-btn" onclick="loadMoreVideos()" class="active-scale inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm rounded-lg shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/30">
+                    <span>Carregar mais aulas</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-slate-500" id="chevron-load">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                    <!-- Spinner de Loading -->
+                    <svg id="loading-spinner" class="hidden animate-spin h-4 w-4 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Separador com Texto -->
+            <div class="my-16 flex items-center justify-between gap-4">
+                <div class="h-px bg-slate-200 flex-grow"></div>
+                <span class="text-base font-semibold text-slate-500 whitespace-nowrap">Não encontrou o treinamento que procura?</span>
+                <div class="h-px bg-slate-200 flex-grow"></div>
+            </div>
+
+            <!-- Card de Treinamento Personalizado -->
+            <section class="bg-white rounded-xl border border-slate-200 shadow-sm mb-16 p-6 sm:p-8 max-w-3xl mx-auto">
+                <form id="custom-training-form" onsubmit="handleCustomTrainingSubmit(event)" class="flex flex-col gap-5 bg-white">
+                    
+                    <!-- Cabeçalho -->
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">Solicitação personalizada</h3>
+                        <p class="text-sm text-slate-500 mt-1">Preencha o formulário abaixo para criar uma nova demanda de capacitação.</p>
+                    </div>
+
+                    <!-- Software e Tipo de Treinamento (Dropdown Selects Customizados) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <!-- Dropdown Qual Software -->
+                        <div class="flex flex-col gap-1.5 relative" id="form-software-container">
+                            <div class="flex items-center gap-2">
+                                <label class="text-sm font-bold text-slate-700">Qual software</label>
+                                <div class="relative group flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-slate-400 cursor-help transition-transform hover:scale-110">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+                                    </svg>
+                                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-2.5 bg-slate-800 text-white text-xs rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 text-center font-medium">
+                                        Crie um novo formulário, caso precise de treinamento para mais de um sistema.
+                                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" id="form-software-dropdown-btn" onclick="toggleDropdown('form-software')" class="flex items-center justify-between w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-800 font-medium hover:bg-slate-100 hover:border-slate-300 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20">
+                                <span id="form-selected-software" class="truncate text-slate-500">Selecione</span>
+                                <span class="flex items-center gap-1.5 absolute right-3.5">
+                                    <span id="form-clear-software-btn" onclick="clearFormSoftware(event)" class="hidden p-0.5 text-slate-500 hover:text-slate-700 transition-colors cursor-pointer" title="Limpar">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-3.5 h-3.5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </span>
+                                    <svg id="form-software-dropdown-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-slate-500 transition-transform duration-200">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                </span>
+                            </button>
+                            <div id="form-software-dropdown-menu" class="hidden absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-lg shadow-xl z-20 overflow-hidden transition-all duration-300">
+                                <button type="button" onclick="selectFormSoftware('iPonto Desktop')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium border-b border-slate-100">iPonto Desktop</button>
+                                <button type="button" onclick="selectFormSoftware('iPonto Connect')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium border-b border-slate-100">iPonto Connect</button>
+                                <button type="button" onclick="selectFormSoftware('iPonto Web')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium border-b border-slate-100">iPonto Web</button>
+                                <button type="button" onclick="selectFormSoftware('iFitness')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium border-b border-slate-100">iFitness</button>
+                                <button type="button" onclick="selectFormSoftware('iControl')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium">iControl</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Dropdown Tipo de Treinamento -->
+                        <div class="flex flex-col gap-1.5 relative" id="form-type-container">
+                            <label class="text-sm font-bold text-slate-700">Tipo de treinamento</label>
+                            <button type="button" id="form-type-dropdown-btn" onclick="toggleDropdown('form-type')" class="flex items-center justify-between w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-800 font-medium hover:bg-slate-100 hover:border-slate-300 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20">
+                                <span id="form-selected-type" class="truncate text-slate-500">Selecione</span>
+                                <span class="flex items-center gap-1.5 absolute right-3.5">
+                                    <span id="form-clear-type-btn" onclick="clearFormType(event)" class="hidden p-0.5 text-slate-500 hover:text-slate-700 transition-colors cursor-pointer" title="Limpar">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-3.5 h-3.5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </span>
+                                    <svg id="form-type-dropdown-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-slate-500 transition-transform duration-200">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                </span>
+                            </button>
+                            <div id="form-type-dropdown-menu" class="hidden absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-lg shadow-xl z-20 overflow-hidden transition-all duration-300">
+                                <button type="button" onclick="selectFormType('Presencial')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 hover:bg-slate-50 transition border-b border-slate-100 flex flex-col gap-0.5 group">
+                                    <span class="text-sm font-bold text-slate-700 group-hover:text-blue-700 transition-colors">Presencial</span>
+                                    <span class="text-xs text-slate-400 font-normal">Realizado na Inspell, em datas pré-agendadas</span>
+                                </button>
+                                <button type="button" onclick="selectFormType('Remoto')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 hover:bg-slate-50 transition flex flex-col gap-0.5 group">
+                                    <span class="text-sm font-bold text-slate-700 group-hover:text-blue-700 transition-colors">Remoto</span>
+                                    <span class="text-xs text-slate-400 font-normal">Individual - realizado via Meet, em data pré-acordada</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Divisor -->
+                    <div class="border-t border-slate-100"></div>
+
+                    <!-- Dados dos Participantes -->
+                    <div class="flex flex-col gap-3">
+                        <h4 class="text-lg font-bold text-slate-800">Dados dos participantes</h4>
+                        
+                        <!-- Lista de Participantes (Campos de input adicionados dinamicamente) -->
+                        <div id="participants-list" class="space-y-2"></div>
+
+                        <!-- Botão + Adicionar Participante -->
+                        <div class="pt-1">
+                            <button type="button" onclick="handleAddParticipant(event)" class="active-scale inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-bold transition-all shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                                <span>Adicionar participante</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Divisor -->
+                    <div class="border-t border-slate-100"></div>
+
+                    <!-- Observação -->
+                    <div class="flex flex-col gap-1.5">
+                        <label for="custom-obs" class="text-sm font-bold text-slate-700">Observações</label>
+                        <textarea id="custom-obs" rows="3" placeholder="Detalhe sua necessidade, se necessário." class="px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-800 font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all resize-none"></textarea>
+                    </div>
+
+                    <!-- Botão Enviar Solicitação -->
+                    <button type="submit" class="active-scale w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-lg flex items-center justify-center gap-2 transition-all shadow-md mt-1">
+                        <span>Enviar Solicitação</span>
+                    </button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts de Interatividade e Base de Dados das Aulas -->
+    <script src="js/database.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
