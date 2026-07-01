@@ -108,10 +108,10 @@
                 <div id="software-dropdown-menu" class="hidden absolute left-0 right-0 mt-2 bg-white border border-slate-200 rounded-lg shadow-xl z-20 overflow-hidden transition-all duration-300">
                     <button onclick="selectSoftwareBrand('Todos')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all font-semibold border-b border-slate-100">Todos os Softwares</button>
                     <button onclick="selectSoftwareBrand('iPonto Desktop')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iPonto Desktop</button>
-                    <button onclick="selectSoftwareBrand('iPonto Connect')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iPonto Connect</button>
-                    <button onclick="selectSoftwareBrand('iPonto Web')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iPonto Web</button>
-                    <button onclick="selectSoftwareBrand('iFitness')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iFitness</button>
-                    <button onclick="selectSoftwareBrand('iControl')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iControl</button>
+                    <!-- <button onclick="selectSoftwareBrand('iPonto Connect')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iPonto Connect</button> -->
+                    <!-- <button onclick="selectSoftwareBrand('iPonto Web')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iPonto Web</button> -->
+                    <!-- <button onclick="selectSoftwareBrand('iFitness')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iFitness</button> -->
+                    <!-- <button onclick="selectSoftwareBrand('iControl')" class="w-full text-left pl-4 pr-4 py-2.5 text-sm text-slate-700 hover:bg-blue-600 hover:text-white transition-all">iControl</button> -->
                 </div>
             </div>
 
@@ -241,10 +241,10 @@
                             </button>
                             <div id="form-software-dropdown-menu" class="hidden absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-lg shadow-xl z-20 overflow-hidden transition-all duration-300">
                                 <button type="button" onclick="selectFormSoftware('iPonto Desktop')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium border-b border-slate-100">iPonto Desktop</button>
-                                <button type="button" onclick="selectFormSoftware('iPonto Connect')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium border-b border-slate-100">iPonto Connect</button>
-                                <button type="button" onclick="selectFormSoftware('iPonto Web')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium border-b border-slate-100">iPonto Web</button>
-                                <button type="button" onclick="selectFormSoftware('iFitness')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium border-b border-slate-100">iFitness</button>
-                                <button type="button" onclick="selectFormSoftware('iControl')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium">iControl</button>
+                                <!-- <button type="button" onclick="selectFormSoftware('iPonto Connect')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium border-b border-slate-100">iPonto Connect</button> -->
+                                <!-- <button type="button" onclick="selectFormSoftware('iPonto Web')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium border-b border-slate-100">iPonto Web</button> -->
+                                <!-- <button type="button" onclick="selectFormSoftware('iFitness')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium border-b border-slate-100">iFitness</button> -->
+                                <!-- <button type="button" onclick="selectFormSoftware('iControl')" class="w-full text-left pl-3.5 pr-3.5 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition font-medium">iControl</button> -->
                             </div>
                         </div>
                         
@@ -317,6 +317,9 @@
     </div>
 
     <!-- Scripts de Interatividade e Base de Dados das Aulas -->
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
     <script src="js/database.js"></script>
     <script src="js/app.js"></script>
 </body>
